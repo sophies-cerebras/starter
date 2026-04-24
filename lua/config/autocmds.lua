@@ -6,3 +6,13 @@
 --
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+
+if vim.fn.argc() == 0 then
+  vim.schedule(function()
+    if _G.Snacks and Snacks.explorer then
+      Snacks.explorer()
+    end
+    vim.cmd("botright 12split | terminal")
+    vim.cmd("wincmd k")
+  end)
+end
